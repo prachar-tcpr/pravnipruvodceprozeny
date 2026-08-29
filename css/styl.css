@@ -395,3 +395,14 @@ details p{ margin: 0 0 24px; max-width: 68ch; font-size: 16.5px; }
   .nav__odkazy a:hover{ border-bottom-color: var(--linka); }
 }
 @media (prefers-reduced-motion: reduce){ .nav__burger span{ transition:none; } }
+
+/* Odkaz na Instagram u autorek */
+.autorka__odkaz{ margin: 16px 0 0; }
+.autorka__odkaz a{
+  display:inline-flex; align-items:center; gap: 9px;
+  font-size: 14.5px; color: var(--vino); text-decoration:none;
+  border-bottom: 1px solid transparent; padding-bottom: 2px;
+  overflow-wrap: anywhere;
+}
+.autorka__odkaz a:hover{ border-bottom-color: var(--vino); }
+.autorka__odkaz svg{ width: 17px; height: 17px; flex: none; }
