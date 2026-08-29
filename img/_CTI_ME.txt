@@ -1,0 +1,11 @@
+Sem patří dva portréty autorek:
+
+  portret_1.jpg  – JUDr. Kristýna Prachařová
+  portret_2.jpg  – Pavlína Šalamounová
+
+Doporučení: na výšku, poměr 4:5 (např. 1000 × 1250 px), JPEG, do 300 kB.
+Dokud tu soubory nejsou, na webu se zobrazí jen vínové pole s iniciálami –
+stránka se nerozbije.
+
+  obalka.jpg     – obálka ebooku (zatím dočasná, ze screenshotu;
+                   nahradíme kvalitním exportem z PDF)
