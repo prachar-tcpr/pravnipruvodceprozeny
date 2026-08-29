@@ -205,7 +205,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
 .autorka__zastupce{
   font-family: var(--f-display); font-size: 42px; color: var(--vino); opacity:.45;
 }
-.autorka h3{ font-size: 24px; margin: 22px 0 4px; }
+.autorka h3{ font-size: 24px; margin: 0; }
 .autorka__role{
   font-size:12px; letter-spacing:.16em; text-transform:uppercase;
   color: var(--zlata-tmava); margin: 0 0 14px;
@@ -396,13 +396,16 @@ details p{ margin: 0 0 24px; max-width: 68ch; font-size: 16.5px; }
 }
 @media (prefers-reduced-motion: reduce){ .nav__burger span{ transition:none; } }
 
-/* Odkaz na Instagram u autorek */
-.autorka__odkaz{ margin: 16px 0 0; }
-.autorka__odkaz a{
-  display:inline-flex; align-items:center; gap: 9px;
-  font-size: 14.5px; color: var(--vino); text-decoration:none;
-  border-bottom: 1px solid transparent; padding-bottom: 2px;
-  overflow-wrap: anywhere;
+
+
+/* Jméno autorky + drobný odkaz na Instagram vpravo */
+.autorka__radek{
+  display:flex; align-items:center; justify-content:space-between;
+  gap: 16px; margin: 22px 0 4px;
 }
-.autorka__odkaz a:hover{ border-bottom-color: var(--vino); }
-.autorka__odkaz svg{ width: 17px; height: 17px; flex: none; }
+.autorka__odkaz{
+  display:inline-block; line-height:0; flex:none;
+  color: var(--text-slaby); transition: color .18s ease;
+}
+.autorka__odkaz:hover{ color: var(--vino); }
+.autorka__odkaz svg{ width: 22px; height: 22px; display:block; }
