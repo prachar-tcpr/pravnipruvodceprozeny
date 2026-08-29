@@ -18,13 +18,16 @@
 <header class="nav">
   <div class="obal nav__vnitrek">
     <a class="znacka" href="#"><span class="znacka__dlouhy">Praktický právní průvodce</span><span class="znacka__kratky">Průvodce</span> <em>pro ženy</em></a>
-    <nav class="nav__odkazy">
+    <nav class="nav__odkazy" id="hlavni-menu">
       <a href="#pro-koho">Pro koho</a>
       <a href="#obsah">Obsah knihy</a>
       <a href="#autorky">Autorky</a>
       <a href="#otazky">Otázky</a>
       <a href="kontakt.html">Kontakt</a>
     </nav>
+    <button class="nav__burger" type="button" aria-expanded="false" aria-controls="hlavni-menu" aria-label="Otevřít menu">
+      <span></span><span></span><span></span>
+    </button>
     <a class="tlacitko tlacitko--maly" href="#objednavka"><span class="znacka__dlouhy">Koupit — </span>990 Kč</a>
   </div>
 </header>
@@ -294,6 +297,28 @@
 
 
 <script>
+(function(){
+  var burger = document.querySelector('.nav__burger');
+  var menu = document.getElementById('hlavni-menu');
+  if(burger && menu){
+    var prepnout = function(otevrit){
+      menu.classList.toggle('je-otevrene', otevrit);
+      burger.classList.toggle('je-otevrene', otevrit);
+      burger.setAttribute('aria-expanded', otevrit ? 'true' : 'false');
+      burger.setAttribute('aria-label', otevrit ? 'Zavřít menu' : 'Otevřít menu');
+    };
+    burger.addEventListener('click', function(){
+      prepnout(!menu.classList.contains('je-otevrene'));
+    });
+    menu.addEventListener('click', function(e){
+      if(e.target.tagName === 'A'){ prepnout(false); }
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){ prepnout(false); }
+    });
+  }
+})();
+
 (function(){
   var prvky = document.querySelectorAll('.sekce, .fakta, .objednavka');
   if(!('IntersectionObserver' in window)){ return; }

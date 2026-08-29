@@ -361,3 +361,37 @@ details p{ margin: 0 0 24px; max-width: 68ch; font-size: 16.5px; }
 /* Tichý odkaz pod častými dotazy */
 .otazky__pod{ margin: 26px 0 0; font-size: 15.5px; color: var(--text-slaby); }
 .otazky__pod a{ color: var(--vino); }
+
+/* ---------- Mobilní menu ------------------------------------------------ */
+.nav__burger{
+  display:none; flex-direction:column; justify-content:center; gap:5px;
+  width: 42px; height: 42px; padding: 0 10px;
+  background:transparent; border:1px solid var(--linka); border-radius: var(--radius);
+  cursor:pointer;
+}
+.nav__burger span{
+  display:block; height:1.5px; width:100%; background: var(--inkoust);
+  transition: transform .22s ease, opacity .18s ease;
+}
+.nav__burger.je-otevrene span:nth-child(1){ transform: translateY(6.5px) rotate(45deg); }
+.nav__burger.je-otevrene span:nth-child(2){ opacity:0; }
+.nav__burger.je-otevrene span:nth-child(3){ transform: translateY(-6.5px) rotate(-45deg); }
+
+@media (max-width: 900px){
+  .nav__burger{ display:flex; margin-left:auto; }
+  .nav__odkazy{
+    display:none; position:absolute; top:100%; left:0; right:0;
+    flex-direction:column; gap:0;
+    margin:0; padding: 4px 24px 16px;
+    background: var(--papir); border-bottom:1px solid var(--linka);
+    box-shadow: 0 18px 40px rgba(24,39,93,.10);
+  }
+  .nav__odkazy.je-otevrene{ display:flex; }
+  .nav__odkazy a{
+    padding: 15px 0; font-size: 16.5px;
+    border-bottom:1px solid var(--linka); border-top:0;
+  }
+  .nav__odkazy a:last-child{ border-bottom:0; }
+  .nav__odkazy a:hover{ border-bottom-color: var(--linka); }
+}
+@media (prefers-reduced-motion: reduce){ .nav__burger span{ transition:none; } }
