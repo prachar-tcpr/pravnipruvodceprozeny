@@ -32,7 +32,7 @@
     <button class="nav__burger" type="button" aria-expanded="false" aria-controls="hlavni-menu" aria-label="Otevřít menu">
       <span></span><span></span><span></span>
     </button>
-    <a class="tlacitko tlacitko--maly" href="#objednavka"><span class="znacka__dlouhy">Koupit — </span>990 Kč</a>
+    <a class="tlacitko tlacitko--maly" href="#objednavka"><span class="znacka__dlouhy">Cena </span>990 Kč</a>
   </div>
 </header>
 <main>
@@ -47,12 +47,12 @@
           od advokátky, která je řeší denně.
         </p>
         <div class="hero__akce">
-          <a class="tlacitko" href="#objednavka">Koupit ebook — 990 Kč</a>
-          <a class="tlacitko tlacitko--obrys" href="#obsah">Co v knize najdete</a>
+          <a class="tlacitko" href="#obsah">Co v knize najdete</a>
+          <a class="tlacitko tlacitko--obrys" href="#objednavka">Kdy bude v prodeji</a>
         </div>
         <p class="hero__detail">
-          <b>PDF, 49 stran</b> &nbsp;·&nbsp; doručení e-mailem ihned po zaplacení
-          &nbsp;·&nbsp; platba kartou i převodem
+          <b>PDF, 49 stran</b> &nbsp;·&nbsp; 990 Kč &nbsp;·&nbsp; doručení e-mailem
+          ihned po zaplacení &nbsp;·&nbsp; platba kartou i převodem
         </p>
       </div>
 
@@ -238,23 +238,27 @@
   <section class="objednavka" id="objednavka">
     <div class="obal objednavka__mrizka">
       <div>
-        <p class="zahlavi zahlavi--svetle">Objednávka</p>
-        <h2>Objednejte si knihu</h2>
+        <p class="zahlavi zahlavi--svetle">Připravujeme</p>
+        <h2>Kniha bude v prodeji během několika dní</h2>
         <p>
-          Vyplňte formulář, zaplaťte kartou nebo bankovním převodem a odkaz ke stažení
-          knihy vám během chvilky dorazí na zadaný e-mail.
+          Dokončujeme napojení platební brány. Jakmile bude hotové, objednáte knihu
+          přímo tady: zaplatíte kartou nebo bankovním převodem a PDF vám během
+          chvilky přijde e-mailem.
         </p>
         <div class="cena"><b>990 Kč</b><span>jednorázově</span></div>
       </div>
 
       <div class="formular">
-        <p class="formular__nadpis">Objednávkový formulář</p>
+        <p class="formular__nadpis">Objednávka se brzy spustí</p>
         <div class="formular__misto">
           <strong>Tady bude objednávkový formulář</strong>
-          Sem vložíme kód z FAPI — jméno, e-mail, souhlas se zpracováním údajů
-          a tlačítko „Zaplatit“. Vzhled sladíme se zbytkem stránky.
+          Chcete vědět, jakmile bude kniha k dispozici? Napište nám a dáme vám
+          vědět jako prvním.
         </div>
-        <p class="formular__pod">Platby zpracovává Comgate. Objednávky vyřizuje systém FAPI.</p>
+        <p style="text-align:center; margin:22px 0 0">
+          <a class="tlacitko" href="mailto:pracharova@pfl.cz?subject=Dejte%20mi%20v%C4%9Bd%C4%9Bt%2C%20a%C5%BE%20bude%20kniha%20v%20prodeji">Dejte mi vědět</a>
+        </p>
+        <p class="formular__pod">Platby bude zpracovávat Comgate, objednávky systém FAPI.</p>
       </div>
     </div>
   </section>
@@ -267,7 +271,7 @@
       <div class="otazky">
         <details open>
           <summary>Jak a kdy knihu dostanu?</summary>
-          <p>Ihned po potvrzení platby vám na zadaný e-mail přijde odkaz ke stažení PDF. Nic se neposílá poštou, na nic se nečeká.</p>
+          <p>Ihned po potvrzení platby vám na zadaný e-mail přijde odkaz ke stažení PDF. Nic se neposílá poštou, na nic se nečeká. Prodej právě spouštíme, zbývá dokončit napojení platební brány.</p>
         </details>
         <details>
           <summary>Jak můžu zaplatit?</summary>
@@ -334,6 +338,33 @@
   }, { rootMargin: '0px 0px -8% 0px', threshold: .06 });
   prvky.forEach(function(p){ io.observe(p); });
 })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "Praktický právní průvodce pro ženy",
+  "alternateName": "Právní minimum pro ženy",
+  "description": "Právní minimum pro ženy: bydlení, peníze, děti, dědictví, životní situace a právní slovníček. Ebook v PDF, 49 stran.",
+  "author": [
+    { "@type": "Person", "name": "JUDr. Kristýna Prachařová" },
+    { "@type": "Person", "name": "Pavlína Šalamounová" }
+  ],
+  "bookFormat": "https://schema.org/EBook",
+  "inLanguage": "cs",
+  "numberOfPages": 49,
+  "image": "https://pravnipruvodceprozeny.cz/img/obalka.jpg",
+  "url": "https://pravnipruvodceprozeny.cz/",
+  "offers": {
+    "@type": "Offer",
+    "price": "990",
+    "priceCurrency": "CZK",
+    "availability": "https://schema.org/PreOrder",
+    "url": "https://pravnipruvodceprozeny.cz/#objednavka",
+    "seller": { "@type": "Organization", "name": "JUDr. Kristýna Prachařová, advokát" }
+  }
+}
 </script>
 <footer class="paticka">
   <div class="obal">
