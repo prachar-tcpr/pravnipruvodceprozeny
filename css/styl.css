@@ -210,7 +210,13 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
   font-size:12px; letter-spacing:.16em; text-transform:uppercase;
   color: var(--zlata-tmava); margin: 0 0 14px;
 }
-.autorka p{ margin:0; font-size:16px; }
+.autorka p{
+  margin:0; font-size:16px;
+  text-align: justify;
+  hyphens: auto;          /* dělení slov, aby v bloku nezůstávaly řídké řádky */
+  -webkit-hyphens: auto;
+}
+.autorka__role{ text-align: left; hyphens: manual; }
 .autorka p + p{ margin-top: 12px; }
 .autorka__role + p{ margin-top: 0; }
 
