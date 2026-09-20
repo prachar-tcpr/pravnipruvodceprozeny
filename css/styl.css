@@ -211,6 +211,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
   color: var(--zlata-tmava); margin: 0 0 14px;
 }
 .autorka p{ margin:0; font-size:16px; }
+.autorka p + p{ margin-top: 12px; }
+.autorka__role + p{ margin-top: 0; }
 
 /* ---------- Objednávka – tmavý pruh ------------------------------------- */
 .objednavka{ background: var(--inkoust-hl); color: #D9DCE8; padding: 88px 0; }
