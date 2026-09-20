@@ -201,6 +201,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
 }
 .autorka__portret img{
   position:absolute; inset:0; width:100%; height:100%; object-fit: cover;
+  z-index: 1;   /* fotka musí přebít zástupné iniciály pod ní */
 }
 .autorka__zastupce{
   font-family: var(--f-display); font-size: 42px; color: var(--vino); opacity:.45;
