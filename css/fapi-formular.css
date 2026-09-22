@@ -1,0 +1,66 @@
+/* ---------------------------------------------------------------------------
+   Úpravy prodejního formuláře FAPI pro pravnipruvodceprozeny.cz
+
+   Vkládá se ve FAPI: krok 6 → VLASTNÍ CSS STYLY → URL adresa CSS souboru
+   https://pravnipruvodceprozeny.cz/css/fapi-formular.css
+
+   Cílem je zkrátit výšku formuláře. Hlavní viník jsou dlaždice platebních
+   metod — třináct kachlíků s odsazením 1,5 rem po třech na řádek.
+   Deklarace mají !important, protože FAPI část rozvržení řeší inline.
+--------------------------------------------------------------------------- */
+
+/* --- Platební metody: víc dlaždic na řádek a nižší kachlíky ------------- */
+
+.fapi-order-form .fapi-form-payment-methods .f-grid{
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+}
+
+@media (min-width: 560px){
+  .fapi-order-form .fapi-form-payment-methods .f-grid{
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (min-width: 820px){
+  .fapi-order-form .fapi-form-payment-methods .f-grid{
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+}
+
+/* Dlaždice: z 1,5 rem odsazení na svislých 10 px */
+.fapi-order-form .fapi-form-payment-methods .f-p-6{
+  padding: 10px 8px !important;
+}
+
+/* Loga zmenšit a vycentrovat — jinak si drží původní výšku */
+.fapi-order-form .fapi-form-payment-methods img{
+  max-height: 26px !important;
+  width: auto !important;
+  max-width: 100% !important;
+  margin-inline: auto !important;
+  display: block !important;
+}
+
+/* --- Záhlaví sekcí: nižší pruhy ----------------------------------------- */
+
+.fapi-order-form .fapi-container-header{
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+
+/* --- Fakturační údaje: menší mezery mezi řádky -------------------------- */
+
+.fapi-order-form .fapi-form-basic-block .f-gap-3,
+.fapi-order-form .fapi-form-basic-block .f-gap-2{
+  gap: 10px !important;
+}
+
+/* --- Vnitřní odsazení celého formuláře --------------------------------- */
+/* Formulář sedí v naší bílé kartě, která už odsazení má. */
+
+.fapi-order-form > .f-p-6{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
