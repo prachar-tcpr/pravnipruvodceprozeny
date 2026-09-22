@@ -4,7 +4,7 @@
    Vkládá se ve FAPI: krok 6 → VLASTNÍ CSS STYLY → URL adresa CSS souboru
    https://pravnipruvodceprozeny.cz/css/fapi-formular.css
 
-   Ověřeno na živé stránce: výška formuláře 1491 px → 1089 px.
+   Ověřeno na živé stránce: výška formuláře 1491 px → 1107 px.
    Deklarace mají !important a plnou specifičnost (.fapi-order-form …),
    protože FAPI si část velikostí řídí inline v atributu style.
 --------------------------------------------------------------------------- */
@@ -14,47 +14,72 @@
   max-width: none !important;
 }
 
-/* --- Platební metody ---------------------------------------------------- */
-/* Třináct dlaždic po třech dělalo pět řádků. Po pěti jsou tři. */
+/* --- Platební metody: mobil -------------------------------------------- */
+/* Tři dlaždice na řádek, bez rozlišení karet a bank — na úzkém displeji
+   by široké dlaždice karet zabraly tři samostatné řádky. */
 
 .fapi-order-form .fapi-form-payment-methods .f-grid{
+  display: grid !important;
   grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   gap: 8px !important;
-}
-
-@media (min-width: 560px){
-  .fapi-order-form .fapi-form-payment-methods .f-grid{
-    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  }
-}
-
-@media (min-width: 900px){
-  .fapi-order-form .fapi-form-payment-methods .f-grid{
-    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
-  }
 }
 
 /* Vnitřní kachlík má od FAPI pevnou výšku 80 px a odsazení 20 px */
 .fapi-order-form .fapi-form-payment-method > div{
   height: auto !important;
-  min-height: 50px !important;
+  min-height: 46px !important;
   padding: 6px 8px !important;
+  place-content: center !important;
 }
 
 /* Loga: FAPI je posazuje inline na 8em × 2,5em a roztahuje.
-   Pevné pixely s object-fit drží proporce i po zmenšení kachlíku. */
+   Pevné pixely s object-fit drží proporce, margin:auto je vycentruje. */
 .fapi-order-form .fapi-form-payment-methods img{
-  width: 96px !important;
-  height: 30px !important;
+  width: 76px !important;
+  height: 24px !important;
   max-width: none !important;
   max-height: none !important;
   object-fit: contain !important;
+  margin: auto !important;
 }
 
-@media (max-width: 559px){
+/* --- Platební metody: od tabletu výš ----------------------------------- */
+/* Karty a peněženky dostanou dvojnásobnou šířku a vyplní první řádek,
+   banky začínají řádkem pod nimi.
+
+   POZOR: Apple Pay se zobrazuje jen na zařízeních Apple, jinde je skrytá.
+   Proto je zlom vynucený u první banky (index 3) a nepočítá se s tím,
+   kolik dlaždic karet je vidět — jinak by se řádky rozsypaly. */
+
+@media (min-width: 700px){
+  .fapi-order-form .fapi-form-payment-methods .f-grid{
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  }
+
+  .fapi-order-form .fapi-form-payment-method-0,
+  .fapi-order-form .fapi-form-payment-method-1,
+  .fapi-order-form .fapi-form-payment-method-2{
+    grid-column: span 2 !important;
+  }
+
+  .fapi-order-form .fapi-form-payment-method-3{
+    grid-column-start: 1 !important;
+  }
+
+  .fapi-order-form .fapi-form-payment-method > div{
+    min-height: 56px !important;
+  }
+
   .fapi-order-form .fapi-form-payment-methods img{
-    width: 76px !important;
-    height: 24px !important;
+    width: 104px !important;
+    height: 32px !important;
+  }
+
+  .fapi-order-form .fapi-form-payment-method-0 img,
+  .fapi-order-form .fapi-form-payment-method-1 img,
+  .fapi-order-form .fapi-form-payment-method-2 img{
+    width: 140px !important;
+    height: 40px !important;
   }
 }
 
