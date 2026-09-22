@@ -224,9 +224,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
 .objednavka{ background: var(--inkoust-hl); color: #D9DCE8; padding: 88px 0; }
 .objednavka h2{ color: #fff; font-size: clamp(30px,3.4vw,40px); margin-bottom: 18px; }
 .objednavka__mrizka{ display:block; }
-.objednavka__text{ max-width: 62ch; margin-bottom: 44px; }
+.objednavka__text{ max-width: none; margin-bottom: 44px; }
 .objednavka__text .cena{ margin-bottom: 0; }
-.objednavka p{ font-size:17px; max-width: 44ch; }
+/* max-width: none je důležité — 44ch by omezovalo i odstavce uvnitř
+   vloženého formuláře FAPI a souhlasy by se lámaly do poloviny šířky */
+.objednavka p{ font-size:17px; max-width: none; }
 
 .cena{
   display:flex; align-items:baseline; gap: 14px; margin: 30px 0 8px;
@@ -237,7 +239,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
 .formular{
   background: #fff; border-radius: var(--radius); padding: 38px 34px;
   border-top: 3px solid var(--zlata);
-  max-width: 900px; margin-inline: auto;
+  /* šířku drží .obal, formulář FAPI vyplní kartu celou */
 }
 .formular__misto{
   border: 1px dashed #C9CEDF; border-radius: var(--radius);

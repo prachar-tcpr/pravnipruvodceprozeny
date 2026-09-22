@@ -4,12 +4,18 @@
    Vkládá se ve FAPI: krok 6 → VLASTNÍ CSS STYLY → URL adresa CSS souboru
    https://pravnipruvodceprozeny.cz/css/fapi-formular.css
 
-   Cílem je zkrátit výšku formuláře. Hlavní viník jsou dlaždice platebních
-   metod — třináct kachlíků s odsazením 1,5 rem po třech na řádek.
-   Deklarace mají !important, protože FAPI část rozvržení řeší inline.
+   Ověřeno na živé stránce: výška formuláře 1491 px → 1089 px.
+   Deklarace mají !important a plnou specifičnost (.fapi-order-form …),
+   protože FAPI si část velikostí řídí inline v atributu style.
 --------------------------------------------------------------------------- */
 
-/* --- Platební metody: víc dlaždic na řádek a nižší kachlíky ------------- */
+/* Formulář vyplní bílou kartu, ne jen 820 px uprostřed */
+.fapi-order-form{
+  max-width: none !important;
+}
+
+/* --- Platební metody ---------------------------------------------------- */
+/* Třináct dlaždic po třech dělalo pět řádků. Po pěti jsou tři. */
 
 .fapi-order-form .fapi-form-payment-methods .f-grid{
   grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
@@ -22,45 +28,67 @@
   }
 }
 
-@media (min-width: 820px){
+@media (min-width: 900px){
   .fapi-order-form .fapi-form-payment-methods .f-grid{
     grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
-    gap: 10px !important;
   }
 }
 
-/* Dlaždice: z 1,5 rem odsazení na svislých 10 px */
-.fapi-order-form .fapi-form-payment-methods .f-p-6{
-  padding: 10px 8px !important;
+/* Vnitřní kachlík má od FAPI pevnou výšku 80 px a odsazení 20 px */
+.fapi-order-form .fapi-form-payment-method > div{
+  height: auto !important;
+  min-height: 50px !important;
+  padding: 6px 8px !important;
 }
 
-/* Loga zmenšit a vycentrovat — jinak si drží původní výšku */
+/* Loga: FAPI je posazuje inline na 8em × 2,5em a roztahuje.
+   Pevné pixely s object-fit drží proporce i po zmenšení kachlíku. */
 .fapi-order-form .fapi-form-payment-methods img{
-  max-height: 26px !important;
-  width: auto !important;
-  max-width: 100% !important;
-  margin-inline: auto !important;
-  display: block !important;
+  width: 96px !important;
+  height: 30px !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain !important;
 }
 
-/* --- Záhlaví sekcí: nižší pruhy ----------------------------------------- */
+@media (max-width: 559px){
+  .fapi-order-form .fapi-form-payment-methods img{
+    width: 76px !important;
+    height: 24px !important;
+  }
+}
+
+/* --- Odsazení bloků a záhlaví ------------------------------------------ */
 
 .fapi-order-form .fapi-container-header{
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+}
+
+.fapi-order-form .f-p-6{
+  padding: 14px !important;
+}
+
+/* --- Shrnutí objednávky: souhlasy a poučení ----------------------------- */
+
+.fapi-order-form .fapi-form-terms{
+  margin-top: 6px !important;
+}
+
+.fapi-order-form .fapi-form-result-terms,
+.fapi-order-form .fapi-form-result-purposes,
+.fapi-order-form .fapi-form-result-primary-purposes{
+  margin-bottom: 4px !important;
+}
+
+.fapi-order-form .fapi-form-result-submit-group{
+  margin-top: 8px !important;
   padding-top: 8px !important;
-  padding-bottom: 8px !important;
 }
 
 /* --- Fakturační údaje: menší mezery mezi řádky -------------------------- */
 
-.fapi-order-form .fapi-form-basic-block .f-gap-3,
-.fapi-order-form .fapi-form-basic-block .f-gap-2{
-  gap: 10px !important;
-}
-
-/* --- Vnitřní odsazení celého formuláře --------------------------------- */
-/* Formulář sedí v naší bílé kartě, která už odsazení má. */
-
-.fapi-order-form > .f-p-6{
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+.fapi-order-form .fapi-form-basic-data .f-gap-3,
+.fapi-order-form .fapi-form-basic-data .f-gap-2{
+  gap: 8px !important;
 }
