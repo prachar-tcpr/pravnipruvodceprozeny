@@ -163,6 +163,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
 .situace__polozka{ border-top: 2px solid var(--zlata); padding-top: 22px; }
 .situace__polozka h3{ font-size: 21px; margin-bottom: 10px; }
 .situace__polozka p{ margin:0; font-size: 16px; }
+/* zbyde-li v posledním řádku jediná položka, roztáhne se na celou šířku */
+.situace__polozka:last-child:nth-child(3n+1){ grid-column: 1 / -1; }
+.situace__polozka:last-child:nth-child(3n+1) p{ max-width: 62ch; }
 
 /* ---------- Obsah knihy – hlavní typografický motiv ---------------------- */
 .obsah{ background: var(--papir-tmavy); border-block:1px solid var(--linka); }
@@ -238,6 +241,12 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
 }
 .formular__misto strong{ display:block; color: var(--inkoust); font-size:16px; margin-bottom:8px; font-weight:600; }
 .formular__pod{ margin: 18px 0 0; font-size:12.5px; color: var(--text-slaby); text-align:center; }
+.formular__zkouska{
+  margin: 0 0 18px; padding: 12px 14px; font-size: 13.5px; line-height:1.5;
+  background: #FBF3E6; border-left: 3px solid var(--zlata-tmava); color: #6b5a33;
+}
+.formular__fapi{ margin: 0 -10px; }
+.formular__fapi iframe, .formular__fapi img{ max-width:100%; }
 
 /* ---------- Otázky ------------------------------------------------------ */
 .otazky{ margin-top: 44px; border-top:1px solid var(--linka); }
