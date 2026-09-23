@@ -275,7 +275,13 @@ details p{ margin: 0 0 24px; max-width: 68ch; font-size: 16.5px; }
 .paticka a{ color: var(--text); text-decoration:none; border-bottom:1px solid var(--linka); }
 .paticka a:hover{ color: var(--inkoust); border-bottom-color: var(--zlata); }
 .paticka__odkazy{ display:flex; flex-wrap:wrap; gap: 22px; }
-.paticka__copy{ margin-top: 34px; padding-top: 22px; border-top:1px solid var(--linka); color: var(--text-slaby); font-size:13px; }
+.paticka__platby{
+  margin-top: 30px; padding-top: 22px; border-top:1px solid var(--linka);
+  display:flex; align-items:center; gap: 18px; flex-wrap:wrap;
+}
+.paticka__platby img{ height:34px; width:auto; }
+.paticka__platby p{ margin:0; font-size:13px; color: var(--text-slaby); }
+.paticka__copy{ margin-top: 22px; padding-top: 22px; border-top:1px solid var(--linka); color: var(--text-slaby); font-size:13px; }
 
 /* ---------- Odhalení při scrollu ---------------------------------------- */
 .odhal{ opacity:0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
